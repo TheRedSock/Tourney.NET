@@ -30,6 +30,6 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The region.
         /// </value>
-        public Region Region { get; set; } 
+        public virtual Region Region { get; set; } 
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Tourney.Model
 {
     /// <summary>
-    /// Class for a match within an event.
+    /// Class for a match within an <see cref="Event"/> class.
     /// </summary>
     public class Match
     {
@@ -23,7 +23,7 @@ namespace Tourney.Model
         /// The event.
         /// </value>
         [Required]
-        public Event Event { get; set; }
+        public virtual Event Event { get; set; }
 
         /// <summary>
         /// Gets or sets the round.
@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The round.
         /// </value>
-        public Round Round { get; set; }
+        public virtual Round Round { get; set; }
 
         /// <summary>
         /// Gets or sets the date time.
@@ -47,7 +47,7 @@ namespace Tourney.Model
         /// <value>
         /// The winner.
         /// </value>
-        public Participant Winner { get; set; } // May have better solution.
+        public virtual Participant Winner { get; set; } // May have better solution.
 
         /// <summary>
         /// Gets or sets the loser.
@@ -55,7 +55,7 @@ namespace Tourney.Model
         /// <value>
         /// The loser.
         /// </value>
-        public Participant Loser { get; set; }
+        public virtual Participant Loser { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the match is a draw.

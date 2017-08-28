@@ -31,6 +31,6 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The countries.
         /// </value>
-        public List<Country> Countries { get; set; }
+        public virtual List<Country> Countries { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The events.
         /// </value>
-        public List<Event> Events { get; set; }
+        public virtual List<Event> Events { get; set; }
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -39,6 +39,6 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; set; }
     }
 }

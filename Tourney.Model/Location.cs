@@ -21,7 +21,7 @@ namespace Tourney.Model
         /// <value>
         /// The continent.
         /// </value>
-        public Continent Continent { get; set; }
+        public virtual Continent Continent { get; set; }
 
         /// <summary>
         /// Gets or sets the country.
@@ -29,7 +29,7 @@ namespace Tourney.Model
         /// <value>
         /// The country.
         /// </value>
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         /// <summary>
         /// Gets or sets the region.
@@ -37,7 +37,7 @@ namespace Tourney.Model
         /// <value>
         /// The region.
         /// </value>
-        public Region Region { get; set; }
+        public virtual Region Region { get; set; }
 
         /// <summary>
         /// Gets or sets the city.
@@ -45,6 +45,6 @@ namespace Tourney.Model
         /// <value>
         /// The city.
         /// </value>
-        public City City { get; set; }
+        public virtual City City { get; set; }
     }
 }

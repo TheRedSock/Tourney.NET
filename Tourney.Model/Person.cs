@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The players.
         /// </value>
-        public List<Player> Players { get; set; }
+        public virtual List<Player> Players { get; set; }
 
         /// <summary>
         /// Gets or sets the residence.
@@ -47,7 +47,7 @@ namespace Tourney.Model
         /// <value>
         /// The residence.
         /// </value>
-        public Location Residence { get; set; }
+        public virtual Location Residence { get; set; }
 
         /// <summary>
         /// Gets or sets the nationality.
@@ -55,7 +55,7 @@ namespace Tourney.Model
         /// <value>
         /// The nationality.
         /// </value>
-        public Location Nationality { get; set; }
+        public virtual Location Nationality { get; set; }
 
         public DateTime Birthdate { get; set; }
 

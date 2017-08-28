@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Tourney.Model
 {
     /// <summary>
-    /// Class for an event within a tournament.
+    /// Class for an event within an <see cref="Tournament"/> class.
     /// </summary>
     public class Event
     {
@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The rounds.
         /// </value>
-        public List<Round> Rounds { get; set; }
+        public virtual List<Round> Rounds { get; set; }
 
         /// <summary>
         /// Gets or sets the tournament.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournament.
         /// </value>
-        public Tournament Tournament { get; set; }
+        public virtual Tournament Tournament { get; set; }
 
         /// <summary>
         /// Gets or sets the matches.
@@ -47,6 +47,6 @@ namespace Tourney.Model
         /// <value>
         /// The matches.
         /// </value>
-        public List<Match> Matches { get; set; }
+        public virtual List<Match> Matches { get; set; }
     }
 }

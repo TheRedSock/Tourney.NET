@@ -31,7 +31,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The country.
         /// </value>
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         /// <summary>
         /// Gets or sets the cities.
@@ -39,6 +39,6 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The cities.
         /// </value>
-        public List<City> Cities { get; set; }
+        public virtual List<City> Cities { get; set; }
     }
 }

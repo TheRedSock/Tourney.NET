@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; set; }
 
         /// <summary>
         /// Gets or sets the matches.
@@ -39,6 +39,17 @@ namespace Tourney.Model
         /// <value>
         /// The matches.
         /// </value>
-        public List<Match> Matches { get; set; }
+        public virtual List<Match> Matches { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Participant"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        public Participant(string name)
+        {
+            Name = name;
+            Rankings = new List<Ranking>();
+            Matches = new List<Match>();
+        }
     }
 }

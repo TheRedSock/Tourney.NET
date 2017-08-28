@@ -31,7 +31,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The continent.
         /// </value>
-        public Continent Continent { get; set; }
+        public virtual Continent Continent { get; set; }
 
         /// <summary>
         /// Gets or sets the regions.
@@ -39,6 +39,6 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The regions.
         /// </value>
-        public List<Region> Regions { get; set; }
+        public virtual List<Region> Regions { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace Tourney.Model.ParticipantClasses
 {
     /// <summary>
-    /// Class for a player which inherits from the Participant class.
+    /// Class for a player which inherits from the <see cref="Participant" /> class.
     /// </summary>
     /// <seealso cref="Tourney.Model.Participant" />
     public class Player : Participant
@@ -20,6 +20,16 @@
         /// <value>
         /// The person.
         /// </value>
-        public Person Person { get; set; }
+        public virtual Person Person { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="person">The person.</param>
+        public Player(string name, Person person) : base(name)
+        {
+            Person = person;
+        }
     }
 }
