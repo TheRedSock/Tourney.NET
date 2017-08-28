@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tourney.Model
 {
@@ -14,6 +15,23 @@ namespace Tourney.Model
         /// The match identifier.
         /// </value>
         public int MatchId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the event.
+        /// </summary>
+        /// <value>
+        /// The event.
+        /// </value>
+        [Required]
+        public Event Event { get; set; }
+
+        /// <summary>
+        /// Gets or sets the round.
+        /// </summary>
+        /// <value>
+        /// The round.
+        /// </value>
+        public Round Round { get; set; }
 
         /// <summary>
         /// Gets or sets the date time.

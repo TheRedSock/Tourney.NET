@@ -139,6 +139,35 @@ namespace Tourney.DataAccess
 
             // Changes the default datetime type to datetime2 instead of SqlDateTime so it can hold older dates.
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+
+            // Maps the many-to-many relation between Ranking and Tournament.
+            modelBuilder.Entity<Ranking>()
+                .HasMany(a => a.Tournaments)
+                .WithMany(b => b.Rankings)
+                .Map(m =>
+                {
+                    m.ToTable("RankingCountsTournament");
+                    m.MapLeftKey("RankingId");
+                    m.MapRightKey("TournamentId");
+                });
+
+            // Maps the many-to-many relation between Ranking and Participant.
+            modelBuilder.Entity<Ranking>()
+                .HasMany(a => a.Participants)
+                .WithMany(b => b.Rankings)
+                .Map(m =>
+                {
+                    m.ToTable("RankingHasParticipant");
+                    m.MapLeftKey("RankingId");
+                    m.MapRightKey("ParticipantId");
+                });
+        }
+
+        public TourneyContext()
+        {
+            Configuration.ProxyCreationEnabled = false;
+            // This deletes and recreates an empty database if the model has changed.
+            Database.SetInitializer(new TourneyDBInitializer()); 
         }
     }
 }

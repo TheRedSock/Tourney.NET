@@ -1,4 +1,6 @@
-﻿namespace Tourney.Model.LocationClasses
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Tourney.Model.LocationClasses
 {
     /// <summary>
     /// Class for a city.
@@ -11,7 +13,7 @@
         /// <value>
         /// The region identifier.
         /// </value>
-        public int RegionId { get; set; }
+        public int CityId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -19,6 +21,7 @@
         /// <value>
         /// The name.
         /// </value>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

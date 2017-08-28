@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tourney.Model.LocationClasses
 {
@@ -21,6 +22,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The name.
         /// </value>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

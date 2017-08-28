@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.Model
@@ -55,6 +56,10 @@ namespace Tourney.Model
         /// The nationality.
         /// </value>
         public Location Nationality { get; set; }
+
+        public DateTime Birthdate { get; set; }
+
+        public int Age { get => DateTime.Today.Year - Birthdate.Year; }
 
         /// <summary>
         /// Gets the full name.

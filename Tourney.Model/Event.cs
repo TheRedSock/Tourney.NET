@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tourney.Model
 {
@@ -21,7 +22,16 @@ namespace Tourney.Model
         /// <value>
         /// The name.
         /// </value>
+        [Required]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rounds.
+        /// </summary>
+        /// <value>
+        /// The rounds.
+        /// </value>
+        public List<Round> Rounds { get; set; }
 
         /// <summary>
         /// Gets or sets the tournament.
