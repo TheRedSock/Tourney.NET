@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Tourney.Model.LocationClasses
+namespace Tourney.Model
 {
     /// <summary>
-    /// Class for a continent.
+    /// Class for a game.
     /// </summary>
-    public class Continent
+    public class Game
     {
         /// <summary>
-        /// Gets or sets the continent identifier.
+        /// Gets or sets the game identifier.
         /// </summary>
         /// <value>
-        /// The continent identifier.
+        /// The game identifier.
         /// </value>
-        public int ContinentId { get; set; }
+        public int GameId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -26,30 +26,30 @@ namespace Tourney.Model.LocationClasses
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the countries.
+        /// Gets or sets the rankings.
         /// </summary>
         /// <value>
-        /// The countries.
+        /// The rankings.
         /// </value>
-        public virtual List<Country> Countries { get; set; }
+        public virtual List<Ranking> Rankings { get; set; }
 
         /// <summary>
-        /// Gets or sets the locations that use this class.
+        /// Gets or sets the tournaments.
         /// </summary>
         /// <value>
-        /// The locations.
+        /// The tournaments.
         /// </value>
-        public virtual List<Location> Locations { get; set; }
+        public virtual List<Tournament> Tournaments { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Continent"/> class.
+        /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
-        public Continent(string name)
+        public Game(string name)
         {
             Name = name;
-            Countries = new List<Country>();
-            Locations = new List<Location>();
+            Rankings = new List<Ranking>();
+            Tournaments = new List<Tournament>();
         }
     }
 }

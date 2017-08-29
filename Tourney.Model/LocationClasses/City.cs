@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tourney.Model.LocationClasses
 {
@@ -30,6 +31,35 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The region.
         /// </value>
-        public virtual Region Region { get; set; } 
+        [Required]
+        public virtual Region Region { get; set; }
+
+        /// <summary>
+        /// Gets or sets the region identifier.
+        /// </summary>
+        /// <value>
+        /// The region identifier.
+        /// </value>
+        public int RegionId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the locations that use this class.
+        /// </summary>
+        /// <value>
+        /// The locations.
+        /// </value>
+        public virtual List<Location> Locations { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="City"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="region">The region.</param>
+        public City(string name, Region region)
+        {
+            Name = name;
+            Region = region;
+            Locations = new List<Location>();
+        }
     }
 }

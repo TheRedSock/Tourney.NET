@@ -9,20 +9,28 @@ namespace Tourney.Model.ParticipantClasses
     public class Team : Participant
     {
         /// <summary>
-        /// Gets or sets the team identifier.
-        /// </summary>
-        /// <value>
-        /// The team identifier.
-        /// </value>
-        public int TeamId { get; set; }
-
-        /// <summary>
         /// Gets or sets the players.
         /// </summary>
         /// <value>
         /// The players.
         /// </value>
         public virtual List<Player> Players { get; set; }
+
+        /// <summary>
+        /// Gets or sets the location.
+        /// </summary>
+        /// <value>
+        /// The location.
+        /// </value>
+        public virtual Location Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets the location identifier.
+        /// </summary>
+        /// <value>
+        /// The location identifier.
+        /// </value>
+        public int? LocationId { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Team"/> class.

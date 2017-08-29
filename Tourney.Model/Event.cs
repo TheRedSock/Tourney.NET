@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Tourney.Model
 {
     /// <summary>
-    /// Class for an event within an <see cref="Tournament"/> class.
+    /// Class for an event within an Tournament class.
     /// </summary>
     public class Event
     {
@@ -26,14 +26,6 @@ namespace Tourney.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the rounds.
-        /// </summary>
-        /// <value>
-        /// The rounds.
-        /// </value>
-        public virtual List<Round> Rounds { get; set; }
-
-        /// <summary>
         /// Gets or sets the tournament.
         /// </summary>
         /// <value>
@@ -42,11 +34,30 @@ namespace Tourney.Model
         public virtual Tournament Tournament { get; set; }
 
         /// <summary>
+        /// Gets or sets the tournament identifier.
+        /// </summary>
+        /// <value>
+        /// The tournament identifier.
+        /// </value>
+        public int TournamentId { get; set; }
+
+        /// <summary>
         /// Gets or sets the matches.
         /// </summary>
         /// <value>
         /// The matches.
         /// </value>
         public virtual List<Match> Matches { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Event"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        public Event(string name, Tournament tournament)
+        {
+            Name = name;
+            Tournament = tournament;
+            Matches = new List<Match>();
+        }
     }
 }

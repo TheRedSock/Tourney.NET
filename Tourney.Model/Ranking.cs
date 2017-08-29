@@ -26,6 +26,23 @@ namespace Tourney.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the game.
+        /// </summary>
+        /// <value>
+        /// The game.
+        /// </value>
+        [Required]
+        public virtual Game Game { get; set; }
+
+        /// <summary>
+        /// Gets or sets the game identifier.
+        /// </summary>
+        /// <value>
+        /// The game identifier.
+        /// </value>
+        public int GameId { get; set; }
+
+        /// <summary>
         /// Gets or sets the participants.
         /// </summary>
         /// <value>
@@ -48,5 +65,25 @@ namespace Tourney.Model
         /// The location.
         /// </value>
         public virtual Location Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets the location identifier.
+        /// </summary>
+        /// <value>
+        /// The location identifier.
+        /// </value>
+        public int? LocationId { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Ranking"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        public Ranking(string name, Game game)
+        {
+            Name = name;
+            Game = game;
+            Participants = new List<Participant>();
+            Tournaments = new List<Tournament>();
+        }
     }
 }

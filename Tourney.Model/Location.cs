@@ -1,4 +1,6 @@
-﻿using Tourney.Model.LocationClasses;
+﻿using System.Collections.Generic;
+using Tourney.Model.LocationClasses;
+using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.Model
 {
@@ -24,12 +26,28 @@ namespace Tourney.Model
         public virtual Continent Continent { get; set; }
 
         /// <summary>
+        /// Gets or sets the continent identifier.
+        /// </summary>
+        /// <value>
+        /// The continent identifier.
+        /// </value>
+        public int? ContinentId { get; set; }
+
+        /// <summary>
         /// Gets or sets the country.
         /// </summary>
         /// <value>
         /// The country.
         /// </value>
         public virtual Country Country { get; set; }
+
+        /// <summary>
+        /// Gets or sets the country identifier.
+        /// </summary>
+        /// <value>
+        /// The country identifier.
+        /// </value>
+        public int? CountryId { get; set; }
 
         /// <summary>
         /// Gets or sets the region.
@@ -40,11 +58,59 @@ namespace Tourney.Model
         public virtual Region Region { get; set; }
 
         /// <summary>
+        /// Gets or sets the region identifier.
+        /// </summary>
+        /// <value>
+        /// The region identifier.
+        /// </value>
+        public int? RegionId { get; set; }
+
+        /// <summary>
         /// Gets or sets the city.
         /// </summary>
         /// <value>
         /// The city.
         /// </value>
         public virtual City City { get; set; }
+
+        /// <summary>
+        /// Gets or sets the city identifier.
+        /// </summary>
+        /// <value>
+        /// The city identifier.
+        /// </value>
+        public int? CityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the people.
+        /// </summary>
+        /// <value>
+        /// The people.
+        /// </value>
+        public List<Person> People { get; set; }
+
+        /// <summary>
+        /// Gets or sets the teams.
+        /// </summary>
+        /// <value>
+        /// The teams.
+        /// </value>
+        public List<Team> Teams { get; set; }
+
+        /// <summary>
+        /// Gets or sets the rankings.
+        /// </summary>
+        /// <value>
+        /// The rankings.
+        /// </value>
+        public List<Ranking> Rankings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tournaments.
+        /// </summary>
+        /// <value>
+        /// The tournaments.
+        /// </value>
+        public List<Tournament> Tournaments { get; set; }
     }
 }

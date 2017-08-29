@@ -50,6 +50,14 @@ namespace Tourney.Model
         public virtual Location Residence { get; set; }
 
         /// <summary>
+        /// Gets or sets the residence identifier.
+        /// </summary>
+        /// <value>
+        /// The residence identifier.
+        /// </value>
+        public int? ResidenceId { get; set; }
+
+        /// <summary>
         /// Gets or sets the nationality.
         /// </summary>
         /// <value>
@@ -57,9 +65,29 @@ namespace Tourney.Model
         /// </value>
         public virtual Location Nationality { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        /// <summary>
+        /// Gets or sets the nationality identifier.
+        /// </summary>
+        /// <value>
+        /// The nationality identifier.
+        /// </value>
+        public int? NationalityId { get; set; }
 
-        public int Age { get => DateTime.Today.Year - Birthdate.Year; }
+        /// <summary>
+        /// Gets or sets the date of birth.
+        /// </summary>
+        /// <value>
+        /// The date of birth.
+        /// </value>
+        public DateTime DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Gets the age.
+        /// </summary>
+        /// <value>
+        /// The age.
+        /// </value>
+        public int Age { get => DateTime.Today.Year - DateOfBirth.Year; } // Might need error handling.
 
         /// <summary>
         /// Gets the full name.
@@ -68,5 +96,17 @@ namespace Tourney.Model
         /// The full name.
         /// </value>
         public string FullName { get => $"{FirstName} {LastName}"; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Person"/> class.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Players = new List<Player>();
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace Tourney.Model
     /// <summary>
     /// Superclass for a participant.
     /// </summary>
-    public class Participant
+    public abstract class Participant
     {
         /// <summary>
         /// Gets or sets the participant identifier.

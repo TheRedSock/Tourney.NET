@@ -133,13 +133,14 @@ namespace Tourney.DataAccess
         /// classes directly.
         /// </remarks>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        {            
             // Makes it so the database tables are not pluralized.
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             // Changes the default datetime type to datetime2 instead of SqlDateTime so it can hold older dates.
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
 
+            #region Many-To-Many
             // Maps the many-to-many relation between Ranking and Tournament.
             modelBuilder.Entity<Ranking>()
                 .HasMany(a => a.Tournaments)
@@ -161,11 +162,108 @@ namespace Tourney.DataAccess
                     m.MapLeftKey("RankingId");
                     m.MapRightKey("ParticipantId");
                 });
+
+            // Maps the many-to-many relation between Player and Teams.
+            modelBuilder.Entity<Player>()
+                .HasMany(a => a.Teams)
+                .WithMany(b => b.Players)
+                .Map(m =>
+                {
+                    m.ToTable("PlayerInTeam");
+                    m.MapLeftKey("PlayerId");
+                    m.MapRightKey("TeamId");
+                });
+            #endregion
+
+            #region One-To-Many
+            // Maps the one-to-many relation between Event and Tournament.
+            modelBuilder.Entity<Event>()
+                .HasRequired(a => a.Tournament)
+                .WithMany(b => b.Events);
+
+            // Maps the one-to-many relation between Match and Event.
+            modelBuilder.Entity<Match>()
+                .HasRequired(a => a.Event)
+                .WithMany(b => b.Matches);
+
+            // Maps the one-to-many relation between Match and Participant (Winner).
+            modelBuilder.Entity<Match>()
+                .HasOptional(a => a.Winner)
+                .WithMany(b => b.Matches)
+                .HasForeignKey(c => c.WinnerId);
+
+            // Maps the one-to-many relation between Match and Participant (Loser).
+            modelBuilder.Entity<Match>()
+                .HasOptional(a => a.Loser)
+                .WithMany(b => b.Matches)
+                .HasForeignKey(c => c.LoserId);
+
+            // Maps the one-to-many relation between Player and Person.
+            modelBuilder.Entity<Player>()
+                .HasOptional(a => a.Person)
+                .WithMany(b => b.Players);
+
+            #region Builders for Location class relations
+            modelBuilder.Entity<Person>()
+                .HasOptional(a => a.Residence)
+                .WithMany(b => b.People)
+                .HasForeignKey(c => c.ResidenceId);
+
+            modelBuilder.Entity<Person>()
+                .HasOptional(a => a.Nationality)
+                .WithMany(b => b.People)
+                .HasForeignKey(c => c.NationalityId);
+
+            modelBuilder.Entity<Team>()
+                .HasOptional(a => a.Location)
+                .WithMany(b => b.Teams);
+
+            modelBuilder.Entity<Ranking>()
+                .HasOptional(a => a.Location)
+                .WithMany(b => b.Rankings);
+
+            modelBuilder.Entity<Tournament>()
+                .HasOptional(a => a.Location)
+                .WithMany(b => b.Tournaments);
+            #endregion
+
+            #region Location Builders
+            // Maps the various one-to-many relations between location subclasses and the Location class.
+            modelBuilder.Entity<Location>()
+                .HasOptional(a => a.Continent)
+                .WithMany(b => b.Locations);
+
+            modelBuilder.Entity<Location>()
+                .HasOptional(a => a.Country)
+                .WithMany(b => b.Locations);
+
+            modelBuilder.Entity<Location>()
+                .HasOptional(a => a.Region)
+                .WithMany(b => b.Locations);
+
+            modelBuilder.Entity<Location>()
+                .HasOptional(a => a.City)
+                .WithMany(b => b.Locations);
+
+            modelBuilder.Entity<City>()
+                .HasRequired(a => a.Region)
+                .WithMany(b => b.Cities);
+
+            modelBuilder.Entity<Region>()
+                .HasRequired(a => a.Country)
+                .WithMany(b => b.Regions);
+
+            modelBuilder.Entity<Country>()
+                .HasRequired(a => a.Continent)
+                .WithMany(b => b.Countries);
+            #endregion
+            #endregion
         }
 
         public TourneyContext()
         {
             Configuration.ProxyCreationEnabled = false;
+
             // This deletes and recreates an empty database if the model has changed.
             Database.SetInitializer(new TourneyDBInitializer()); 
         }

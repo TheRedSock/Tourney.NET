@@ -14,20 +14,18 @@ namespace Tourney.SampleData
             try // Safeguard the operations
             {
                 // Test the model
-                var continent = new Continent() { Name = "Europe", Countries = new List<Country>()};
-                var country = new Country() { Name = "Norway", Continent = continent, Regions = new List<Region>()};
-                var region = new Region() { Name = "Østfold", Country = country, Cities = new List<City>() };
-                var city = new City() { Name = "Halden", Region = region };
+                var continent = new Continent("Europe");
+                var country = new Country("Norway", continent);
+                var region = new Region("Østfold", country);
+                var city = new City("Halden", region);
                 continent.Countries.Add(country);
                 country.Regions.Add(region);
                 region.Cities.Add(city);
 
                 var location = new Location() { Continent = continent, Country = country, Region = region, City = city };
 
-                var person = new Person() {
-                    FirstName = "Torstein",
-                    LastName = "Røsok",
-                    Birthdate = new DateTime(1993, 04, 23),
+                var person = new Person("Torstein", "Røsok") {
+                    DateOfBirth = new DateTime(1993, 04, 23),
                     Nationality = location,
                     Residence = location,
                     Players = new List<Player>()

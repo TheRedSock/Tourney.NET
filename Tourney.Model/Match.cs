@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Tourney.Model
 {
     /// <summary>
-    /// Class for a match within an <see cref="Event"/> class.
+    /// Class for a match within an Event class.
     /// </summary>
     public class Match
     {
@@ -47,7 +47,15 @@ namespace Tourney.Model
         /// <value>
         /// The winner.
         /// </value>
-        public virtual Participant Winner { get; set; } // May have better solution.
+        public virtual Participant Winner { get; set; }
+
+        /// <summary>
+        /// Gets or sets the winner identifier.
+        /// </summary>
+        /// <value>
+        /// The winner identifier.
+        /// </value>
+        public int? WinnerId { get; set; }
 
         /// <summary>
         /// Gets or sets the loser.
@@ -56,6 +64,14 @@ namespace Tourney.Model
         /// The loser.
         /// </value>
         public virtual Participant Loser { get; set; }
+
+        /// <summary>
+        /// Gets or sets the loser identifier.
+        /// </summary>
+        /// <value>
+        /// The loser identifier.
+        /// </value>
+        public int? LoserId { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the match is a draw.
@@ -72,5 +88,8 @@ namespace Tourney.Model
         ///   <c>true</c> if this instance is forfeit; otherwise, <c>false</c>.
         /// </value>
         public bool IsForfeit { get; set; }
+
+        // Might need implement logic to force IsForfeit to be true if either winner or loser is null.
+        // Another solution would be to add another boolean for whether a participants profile has been deleted.
     }
 }
