@@ -82,12 +82,20 @@ namespace Tourney.Model
         public int? CityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the people.
+        /// Gets or sets the residences.
         /// </summary>
         /// <value>
-        /// The people.
+        /// The residences.
         /// </value>
-        public virtual List<Person> People { get; set; }
+        public virtual List<Person> Residences { get; set; }
+
+        /// <summary>
+        /// Gets or sets the nationalities.
+        /// </summary>
+        /// <value>
+        /// The nationalities.
+        /// </value>
+        public virtual List<Person> Nationalities { get; set; }
 
         /// <summary>
         /// Gets or sets the teams.
@@ -112,5 +120,13 @@ namespace Tourney.Model
         /// The tournaments.
         /// </value>
         public virtual List<Tournament> Tournaments { get; set; }
+
+        public Location()
+        {
+            Residences = new List<Person>();
+            Nationalities = new List<Person>();
+            Teams = new List<Team>();
+            Tournaments = new List<Tournament>();
+        }
     }
 }

@@ -136,6 +136,7 @@ namespace Tourney.DataAccess
         {            
             // Makes it so the database tables are not pluralized.
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             // Changes the default datetime type to datetime2 instead of SqlDateTime so it can hold older dates.
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
@@ -147,7 +148,7 @@ namespace Tourney.DataAccess
                 .WithMany(b => b.Rankings)
                 .Map(m =>
                 {
-                    m.ToTable("RankingCountsTournament");
+                    m.ToTable("RankingTournament");
                     m.MapLeftKey("RankingId");
                     m.MapRightKey("TournamentId");
                 });
@@ -158,7 +159,7 @@ namespace Tourney.DataAccess
                 .WithMany(b => b.Rankings)
                 .Map(m =>
                 {
-                    m.ToTable("RankingHasParticipant");
+                    m.ToTable("RankingParticipant");
                     m.MapLeftKey("RankingId");
                     m.MapRightKey("ParticipantId");
                 });
@@ -169,7 +170,7 @@ namespace Tourney.DataAccess
                 .WithMany(b => b.Players)
                 .Map(m =>
                 {
-                    m.ToTable("PlayerInTeam");
+                    m.ToTable("PlayerTeam");
                     m.MapLeftKey("PlayerId");
                     m.MapRightKey("TeamId");
                 });
@@ -189,13 +190,13 @@ namespace Tourney.DataAccess
             // Maps the one-to-many relation between Match and Participant (Winner).
             modelBuilder.Entity<Match>()
                 .HasOptional(a => a.Winner)
-                .WithMany(b => b.Matches)
+                .WithMany(b => b.Wins)
                 .HasForeignKey(c => c.WinnerId);
 
             // Maps the one-to-many relation between Match and Participant (Loser).
             modelBuilder.Entity<Match>()
                 .HasOptional(a => a.Loser)
-                .WithMany(b => b.Matches)
+                .WithMany(b => b.Losses)
                 .HasForeignKey(c => c.LoserId);
 
             // Maps the one-to-many relation between Player and Person.
@@ -204,14 +205,15 @@ namespace Tourney.DataAccess
                 .WithMany(b => b.Players);
 
             #region Builders for Location class relations
+            // Maps the relations between the Location class and other classes.
             modelBuilder.Entity<Person>()
                 .HasOptional(a => a.Residence)
-                .WithMany(b => b.People)
+                .WithMany(b => b.Residences)
                 .HasForeignKey(c => c.ResidenceId);
 
             modelBuilder.Entity<Person>()
                 .HasOptional(a => a.Nationality)
-                .WithMany(b => b.People)
+                .WithMany(b => b.Nationalities)
                 .HasForeignKey(c => c.NationalityId);
 
             modelBuilder.Entity<Team>()
@@ -265,7 +267,7 @@ namespace Tourney.DataAccess
             Configuration.ProxyCreationEnabled = false;
 
             // This deletes and recreates an empty database if the model has changed.
-            Database.SetInitializer(new TourneyDBInitializer()); 
+            //Database.SetInitializer(new TourneyDBInitializer()); 
         }
     }
 }

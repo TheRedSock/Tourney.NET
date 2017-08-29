@@ -34,12 +34,20 @@ namespace Tourney.Model
         public virtual List<Ranking> Rankings { get; set; }
 
         /// <summary>
-        /// Gets or sets the matches.
+        /// Gets or sets the wins.
         /// </summary>
         /// <value>
-        /// The matches.
+        /// The wins.
         /// </value>
-        public virtual List<Match> Matches { get; set; }
+        public virtual List<Match> Wins { get; set; }
+
+        /// <summary>
+        /// Gets or sets the losses.
+        /// </summary>
+        /// <value>
+        /// The losses.
+        /// </value>
+        public virtual List<Match> Losses { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Participant"/> class.
@@ -49,7 +57,9 @@ namespace Tourney.Model
         {
             Name = name;
             Rankings = new List<Ranking>();
-            Matches = new List<Match>();
+            Wins = new List<Match>();
+            Losses = new List<Match>();
+
         }
     }
 }
