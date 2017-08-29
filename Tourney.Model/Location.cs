@@ -87,7 +87,7 @@ namespace Tourney.Model
         /// <value>
         /// The people.
         /// </value>
-        public List<Person> People { get; set; }
+        public virtual List<Person> People { get; set; }
 
         /// <summary>
         /// Gets or sets the teams.
@@ -95,7 +95,7 @@ namespace Tourney.Model
         /// <value>
         /// The teams.
         /// </value>
-        public List<Team> Teams { get; set; }
+        public virtual List<Team> Teams { get; set; }
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -103,7 +103,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; set; }
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -111,6 +111,6 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public List<Tournament> Tournaments { get; set; }
+        public virtual List<Tournament> Tournaments { get; set; }
     }
 }

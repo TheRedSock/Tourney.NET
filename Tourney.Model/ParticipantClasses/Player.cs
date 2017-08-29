@@ -30,7 +30,7 @@ namespace Tourney.Model.ParticipantClasses
         /// <value>
         /// The teams.
         /// </value>
-        public List<Team> Teams { get; set; }
+        public virtual List<Team> Teams { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
