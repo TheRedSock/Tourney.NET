@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66d132b3c3a145af83855bcfc6748296" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.City" Width="1.5" PointX="7.875" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Continent" Width="1.5" PointX="7.625" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Country" Width="1.5" PointX="5.375" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Event" Width="1.5" PointX="18.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Game" Width="1.5" PointX="11.625" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Location" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Match" Width="1.5" PointX="16.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Participant" Width="1.5" PointX="14.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Person" Width="1.5" PointX="11.875" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Ranking" Width="1.5" PointX="14.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Region" Width="1.5" PointX="5.625" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Round" Width="1.5" PointX="16.625" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tourney.DataAccess.TourneyContextModel.Tournament" Width="1.5" PointX="16.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_City_dbo_Region_RegionId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Location_dbo_City_CityId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Country_dbo_Continent_ContinentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Location_dbo_Continent_ContinentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Location_dbo_Country_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Region_dbo_Country_CountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Event_dbo_Tournament_TournamentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Match_dbo_Event_Event_EventId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Ranking_dbo_Game_GameId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Tournament_dbo_Game_GameId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Location_dbo_Region_RegionId" ManuallyRouted="false" ></AssociationConnector>
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Participant_dbo_Location_LocationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Person_dbo_Location_NationalityId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Person_dbo_Location_ResidenceId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Ranking_dbo_Location_LocationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Tournament_dbo_Location_LocationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Match_dbo_Participant_LoserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Match_dbo_Participant_WinnerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Match_dbo_Round_Round_RoundId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.FK_dbo_Participant_dbo_Person_PersonId" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.PlayerTeam" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.RankingParticipant" ManuallyRouted="false" />
+        <AssociationConnector Association="Tourney.DataAccess.TourneyContextModel.RankingTournament" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

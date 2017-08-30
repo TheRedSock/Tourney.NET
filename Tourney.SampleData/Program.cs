@@ -32,6 +32,9 @@ namespace Tourney.SampleData
                 };
 
                 var player = new Player("TheRedSock", person);
+
+                var team = new Team("Smash Østfold");
+                team.Players.Add(player);
                 
 
                 // Test persisting the model to the database
@@ -43,6 +46,8 @@ namespace Tourney.SampleData
                     db.Cities.Add(city);
                     db.Locations.Add(location);
                     db.People.Add(person);
+                    db.Players.Add(player);
+                    db.Teams.Add(team);
 
                     db.SaveChanges();
                 }
