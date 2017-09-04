@@ -61,8 +61,8 @@ namespace Tourney.DataAccess
             playoffs.Matches.Add(matchTwo);
             playoffs.Matches.Add(matchThree);
 
-            var ranking = new Ranking("SR.EU", game);
-            var rankingCrew = new Ranking("Crews", game);
+            var ranking = new Ranking("SR.EU", game) { Location = location };
+            var rankingCrew = new Ranking("Crews", game) { Location = na };
             ranking.Tournaments.Add(tournament);
             ranking.Participants.Add(player);
             ranking.Participants.Add(playerTwo);
