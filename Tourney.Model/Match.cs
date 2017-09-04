@@ -41,6 +41,8 @@ namespace Tourney.Model
         /// </value>
         public DateTime DateTime { get; set; }
 
+        public string Round { get; set; }
+
         /// <summary>
         /// Gets or sets the winner.
         /// </summary>

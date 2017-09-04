@@ -114,6 +114,8 @@ namespace Tourney.Model
                     r[i] = $"Round {r.Length - i}";
                 }
             }
+            // In this example R will return an array with 9 values. R1-R6 + QF, SF & WF.
+            // This accounts for a 256 man bracket, since there is more than 128 players.
             return r;
         }
     }
