@@ -5,6 +5,7 @@ using Tourney.Model;
 using Tourney.Model.LocationClasses;
 using Tourney.Model.ParticipantClasses;
 
+// Deprecated
 namespace Tourney.SampleData
 {
     class Program
