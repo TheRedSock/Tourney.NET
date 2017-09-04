@@ -51,7 +51,7 @@ namespace Tourney.DataAccess
             var game = new Game("Super Smash Bros. Melee");
 
             var tournament = new Tournament("Smash the Mill Deluxe", game) { Location = location };
-            var playoffs = new Event("Showmatch", tournament);
+            var playoffs = new Event("Showmatch", tournament, EventType.DoubleElimination);
 
             var matchOne = new Match(playoffs, playerThree, player) { DateTime = DateTime.Now };
             var matchTwo = new Match(playoffs, playerTwo, playerFour) { DateTime = DateTime.Now };

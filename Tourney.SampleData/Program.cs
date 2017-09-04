@@ -12,8 +12,10 @@ namespace Tourney.SampleData
     {
         static void Main(string[] args)
         {
+            
             try // Safeguard the operations
             {
+                /*
                 // Test the model
                 var continent = new Continent("Europe");
                 var america = new Continent("North America");
@@ -124,6 +126,7 @@ namespace Tourney.SampleData
                     }
                 }
                 Console.WriteLine("Operations completed successfully.");
+                */
             }
             catch (System.Exception ex)
             {

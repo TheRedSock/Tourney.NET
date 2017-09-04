@@ -34,22 +34,6 @@ namespace Tourney.Model
         public int EventId { get; set; }
 
         /// <summary>
-        /// Gets or sets the round.
-        /// </summary>
-        /// <value>
-        /// The round.
-        /// </value>
-        public virtual Round Round { get; set; }
-
-        /// <summary>
-        /// Gets or sets the round identifier.
-        /// </summary>
-        /// <value>
-        /// The round identifier.
-        /// </value>
-        public int? RoundId { get; set; }
-
-        /// <summary>
         /// Gets or sets the date time.
         /// </summary>
         /// <value>
