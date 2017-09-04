@@ -172,6 +172,17 @@ namespace Tourney.DataAccess
                     m.MapRightKey("ParticipantId");
                 });
 
+            // Maps the many-to-many relation between Participant and Tournament.
+            modelBuilder.Entity<Participant>()
+                .HasMany(a => a.Tournaments)
+                .WithMany(b => b.Participants)
+                .Map(m =>
+                {
+                    m.ToTable("ParticipantTournament");
+                    m.MapLeftKey("ParticipantId");
+                    m.MapRightKey("TournamentId");
+                });
+
             // Maps the many-to-many relation between Player and Teams.
             modelBuilder.Entity<Player>()
                 .HasMany(a => a.Teams)

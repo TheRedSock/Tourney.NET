@@ -41,6 +41,12 @@ namespace Tourney.Model
         /// </value>
         public DateTime DateTime { get; set; }
 
+        /// <summary>
+        /// Gets or sets the round.
+        /// </summary>
+        /// <value>
+        /// The round.
+        /// </value>
         public string Round { get; set; }
 
         /// <summary>

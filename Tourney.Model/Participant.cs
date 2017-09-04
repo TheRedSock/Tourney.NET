@@ -26,6 +26,14 @@ namespace Tourney.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the tournaments.
+        /// </summary>
+        /// <value>
+        /// The tournaments.
+        /// </value>
+        public virtual List<Tournament> Tournaments { get; set; }
+
+        /// <summary>
         /// Gets or sets the rankings.
         /// </summary>
         /// <value>
@@ -56,6 +64,7 @@ namespace Tourney.Model
         public Participant(string name)
         {
             Name = name;
+            Tournaments = new List<Tournament>();
             Rankings = new List<Ranking>();
             Wins = new List<Match>();
             Losses = new List<Match>();

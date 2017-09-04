@@ -67,6 +67,14 @@ namespace Tourney.Model
         public virtual List<Event> Events { get; set; }
 
         /// <summary>
+        /// Gets or sets the participants.
+        /// </summary>
+        /// <value>
+        /// The participants.
+        /// </value>
+        public virtual List<Participant> Participants { get; set; }
+
+        /// <summary>
         /// Gets or sets the rankings.
         /// </summary>
         /// <value>
@@ -84,9 +92,16 @@ namespace Tourney.Model
             Name = name;
             Game = game;
             Events = new List<Event>();
+            Participants = new List<Participant>();
             Rankings = new List<Ranking>();
         }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString()
         {
             return Name;

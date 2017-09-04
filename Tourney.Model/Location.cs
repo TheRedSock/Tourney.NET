@@ -121,6 +121,9 @@ namespace Tourney.Model
         /// </value>
         public virtual List<Tournament> Tournaments { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Location"/> class.
+        /// </summary>
         public Location()
         {
             Residences = new List<Person>();
