@@ -93,6 +93,7 @@ namespace Tourney.DataAccess
             context.Matches.Add(matchTwo);
             context.Matches.Add(matchThree);
             context.Rankings.Add(ranking);
+            context.Rankings.Add(rankingCrew);
 
             base.Seed(context);
         }
