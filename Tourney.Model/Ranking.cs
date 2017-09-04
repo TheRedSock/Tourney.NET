@@ -96,5 +96,12 @@ namespace Tourney.Model
         {
             return Name;
         }
+
+        /// <summary>
+        /// Parameterless constructor for the <see cref="Ranking"/> class.
+        /// </summary>
+        public Ranking()
+        {
+        }
     }
 }
