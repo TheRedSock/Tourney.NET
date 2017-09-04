@@ -85,5 +85,14 @@ namespace Tourney.Model
             Participants = new List<Participant>();
             Tournaments = new List<Tournament>();
         }
+
+        public Ranking()
+        {
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

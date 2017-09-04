@@ -63,6 +63,7 @@ namespace Tourney.Model
         /// <value>
         /// The winner.
         /// </value>
+        [Required]
         public virtual Participant Winner { get; set; }
 
         /// <summary>
@@ -79,6 +80,7 @@ namespace Tourney.Model
         /// <value>
         /// The loser.
         /// </value>
+        [Required]
         public virtual Participant Loser { get; set; }
 
         /// <summary>
@@ -105,6 +107,19 @@ namespace Tourney.Model
         /// </value>
         public bool IsForfeit { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Match"/> class.
+        /// </summary>
+        /// <param name="theEvent">The event.</param>
+        /// <param name="winner">The winner.</param>
+        /// <param name="loser">The loser.</param>
+        public Match(Event theEvent, Participant winner, Participant loser)
+        {
+            Event = theEvent;
+            Winner = winner;
+            Loser = loser;
+
+        }
         // Might need implement logic to force IsForfeit to be true if either winner or loser is null.
         // Another solution would be to add another boolean for whether a participants profile has been deleted.
     }

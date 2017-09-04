@@ -30,6 +30,14 @@ namespace Tourney.DataAccess
         public virtual DbSet<Tournament> Tournaments { get; set; }
 
         /// <summary>
+        /// Gets or sets the games.
+        /// </summary>
+        /// <value>
+        /// The games.
+        /// </value>
+        public virtual DbSet<Game> Games { get; set; }
+
+        /// <summary>
         /// Gets or sets the events.
         /// </summary>
         /// <value>

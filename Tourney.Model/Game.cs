@@ -51,5 +51,10 @@ namespace Tourney.Model
             Rankings = new List<Ranking>();
             Tournaments = new List<Tournament>();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

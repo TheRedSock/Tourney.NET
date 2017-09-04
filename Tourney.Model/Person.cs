@@ -108,5 +108,10 @@ namespace Tourney.Model
             LastName = lastName;
             Players = new List<Player>();
         }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

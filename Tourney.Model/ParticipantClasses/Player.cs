@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tourney.Model.ParticipantClasses
 {
@@ -14,6 +15,7 @@ namespace Tourney.Model.ParticipantClasses
         /// <value>
         /// The person.
         /// </value>
+        [Required]
         public virtual Person Person { get; set; }
 
         /// <summary>
