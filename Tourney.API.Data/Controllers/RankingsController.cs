@@ -8,7 +8,7 @@ using System.Web.Http.Description;
 using Tourney.DataAccess;
 using Tourney.Model;
 
-namespace Tourney.API.Data.Controllers
+namespace Tourney.Api.Data.Controllers
 {
     /// <summary>
     /// API controller for the table of rankings.

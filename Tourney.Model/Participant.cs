@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual List<Tournament> Tournaments { get; set; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the wins.
@@ -47,7 +47,7 @@ namespace Tourney.Model
         /// <value>
         /// The wins.
         /// </value>
-        public virtual List<Match> Wins { get; set; }
+        public virtual List<Match> Wins { get; } = new List<Match>();
 
         /// <summary>
         /// Gets or sets the losses.
@@ -55,20 +55,22 @@ namespace Tourney.Model
         /// <value>
         /// The losses.
         /// </value>
-        public virtual List<Match> Losses { get; set; }
+        public virtual List<Match> Losses { get; } = new List<Match>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Participant"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
-        public Participant(string name)
+        protected Participant(string name)
         {
             Name = name;
-            Tournaments = new List<Tournament>();
-            Rankings = new List<Ranking>();
-            Wins = new List<Match>();
-            Losses = new List<Match>();
+        }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Participant"/> class.
+        /// </summary>
+        protected Participant()
+        {
         }
     }
 }

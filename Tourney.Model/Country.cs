@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Tourney.Model.LocationClasses
+namespace Tourney.Model
 {
     /// <summary>
     /// Class for a country.
@@ -48,7 +48,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The regions.
         /// </value>
-        public virtual List<Region> Regions { get; set; }
+        public virtual List<Region> Regions { get; } = new List<Region>();
 
         /// <summary>
         /// Gets or sets the locations that use this class.
@@ -56,7 +56,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The locations.
         /// </value>
-        public virtual List<Location> Locations { get; set; }
+        public virtual List<Location> Locations { get; } = new List<Location>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Country"/> class.
@@ -67,8 +67,13 @@ namespace Tourney.Model.LocationClasses
         {
             Name = name;
             Continent = continent;
-            Regions = new List<Region>();
-            Locations = new List<Location>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Country"/> class.
+        /// </summary>
+        public Country()
+        {
         }
     }
 }

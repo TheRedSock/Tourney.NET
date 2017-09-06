@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual List<Tournament> Tournaments { get; set; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
@@ -48,8 +48,6 @@ namespace Tourney.Model
         public Game(string name)
         {
             Name = name;
-            Rankings = new List<Ranking>();
-            Tournaments = new List<Tournament>();
         }
 
         /// <summary>
@@ -61,6 +59,13 @@ namespace Tourney.Model
         public override string ToString()
         {
             return Name;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Game"/> class.
+        /// </summary>
+        public Game()
+        {
         }
     }
 }

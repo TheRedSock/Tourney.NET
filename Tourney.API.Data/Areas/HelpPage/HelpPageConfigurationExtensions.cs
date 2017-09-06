@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using Tourney.API.Data.Areas.HelpPage.ModelDescriptions;
-using Tourney.API.Data.Areas.HelpPage.Models;
+using Tourney.Api.Data.Areas.HelpPage.ModelDescriptions;
+using Tourney.Api.Data.Areas.HelpPage.Models;
 
-namespace Tourney.API.Data.Areas.HelpPage
+namespace Tourney.Api.Data.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using Tourney.DataAccess;
 using Tourney.Model;
-using Tourney.Model.LocationClasses;
-using Tourney.Model.ParticipantClasses;
 
 // Deprecated
 namespace Tourney.SampleData
@@ -56,7 +54,7 @@ namespace Tourney.SampleData
                 var game = new Game("Super Smash Bros. Melee");
 
                 var tournament = new Tournament("Smash the Mill Deluxe", game) { Location = location };
-                var playoffs = new Event("Showmatch", tournament);
+                var playoffs = new Phase("Showmatch", tournament);
 
                 var matchOne = new Match(playoffs, playerThree, player) { DateTime = DateTime.Now };
                 var matchTwo = new Match(playoffs, playerTwo, playerFour) { DateTime = DateTime.Now };
@@ -96,7 +94,7 @@ namespace Tourney.SampleData
                     db.Teams.Add(teamTwo);
                     db.Games.Add(game);
                     db.Tournaments.Add(tournament);
-                    db.Events.Add(playoffs);
+                    db.Phases.Add(playoffs);
                     db.Matches.Add(matchOne);
                     db.Matches.Add(matchTwo);
                     db.Matches.Add(matchThree);

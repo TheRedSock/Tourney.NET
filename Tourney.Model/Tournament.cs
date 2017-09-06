@@ -59,12 +59,12 @@ namespace Tourney.Model
         public int? LocationId { get; set; }
 
         /// <summary>
-        /// Gets or sets the events.
+        /// Gets or sets the Phases.
         /// </summary>
         /// <value>
-        /// The events.
+        /// The Phases.
         /// </value>
-        public virtual List<Event> Events { get; set; }
+        public virtual List<Phase> Phases { get; } = new List<Phase>();
 
         /// <summary>
         /// Gets or sets the participants.
@@ -72,7 +72,7 @@ namespace Tourney.Model
         /// <value>
         /// The participants.
         /// </value>
-        public virtual List<Participant> Participants { get; set; }
+        public virtual List<Participant> Participants { get; } = new List<Participant>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -80,7 +80,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Tournament" /> class.
@@ -91,9 +91,6 @@ namespace Tourney.Model
         {
             Name = name;
             Game = game;
-            Events = new List<Event>();
-            Participants = new List<Participant>();
-            Rankings = new List<Ranking>();
         }
 
         /// <summary>
@@ -105,6 +102,10 @@ namespace Tourney.Model
         public override string ToString()
         {
             return Name;
+        }
+
+        public Tournament()
+        {
         }
     }
 }

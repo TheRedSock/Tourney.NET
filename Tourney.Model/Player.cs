@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Tourney.Model.ParticipantClasses
+namespace Tourney.Model
 {
     /// <summary>
     /// Class for a player which inherits from the <see cref="Participant" /> class.
@@ -32,7 +32,7 @@ namespace Tourney.Model.ParticipantClasses
         /// <value>
         /// The teams.
         /// </value>
-        public virtual List<Team> Teams { get; set; }
+        public virtual List<Team> Teams { get; } = new List<Team>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
@@ -42,6 +42,13 @@ namespace Tourney.Model.ParticipantClasses
         public Player(string name, Person person) : base(name)
         {
             Person = person;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        public Player() : base()
+        {
         }
     }
 }

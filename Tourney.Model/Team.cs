@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Tourney.Model.ParticipantClasses
+namespace Tourney.Model
 {
     /// <summary>
     /// Class for a team which inherits from the <see cref="Participant"/> class.
@@ -14,7 +14,7 @@ namespace Tourney.Model.ParticipantClasses
         /// <value>
         /// The players.
         /// </value>
-        public virtual List<Player> Players { get; set; }
+        public virtual List<Player> Players { get; } = new List<Player>();
 
         /// <summary>
         /// Gets or sets the location.
@@ -38,7 +38,13 @@ namespace Tourney.Model.ParticipantClasses
         /// <param name="name">The name.</param>
         public Team(string name) : base(name)
         {
-            Players = new List<Player>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Team"/> class.
+        /// </summary>
+        public Team() : base()
+        {
         }
     }
 }

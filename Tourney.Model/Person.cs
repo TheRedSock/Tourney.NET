@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.Model
 {
@@ -39,7 +38,7 @@ namespace Tourney.Model
         /// <value>
         /// The players.
         /// </value>
-        public virtual List<Player> Players { get; set; }
+        public virtual List<Player> Players { get; } = new List<Player>();
 
         /// <summary>
         /// Gets or sets the residence.
@@ -106,7 +105,6 @@ namespace Tourney.Model
         {
             FirstName = firstName;
             LastName = lastName;
-            Players = new List<Player>();
         }
 
         /// <summary>
@@ -118,6 +116,13 @@ namespace Tourney.Model
         public override string ToString()
         {
             return FullName;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Person"/> class.
+        /// </summary>
+        public Person()
+        {
         }
     }
 }

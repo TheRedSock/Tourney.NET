@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Tourney.Model
 {
     /// <summary>
-    /// Class for a match within an Event class.
+    /// Class for a match within an Phase class.
     /// </summary>
     public class Match
     {
@@ -17,21 +17,21 @@ namespace Tourney.Model
         public int MatchId { get; set; }
 
         /// <summary>
-        /// Gets or sets the event.
+        /// Gets or sets the Phase.
         /// </summary>
         /// <value>
-        /// The event.
+        /// The Phase.
         /// </value>
         [Required]
-        public virtual Event Event { get; set; }
+        public virtual Phase Phase { get; set; }
 
         /// <summary>
-        /// Gets or sets the event identifier.
+        /// Gets or sets the Phase identifier.
         /// </summary>
         /// <value>
-        /// The event identifier.
+        /// The Phase identifier.
         /// </value>
-        public int EventId { get; set; }
+        public int PhaseId { get; set; }
 
         /// <summary>
         /// Gets or sets the date time.
@@ -102,17 +102,24 @@ namespace Tourney.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Match"/> class.
         /// </summary>
-        /// <param name="theEvent">The event.</param>
+        /// <param name="thePhase">The Phase.</param>
         /// <param name="winner">The winner.</param>
         /// <param name="loser">The loser.</param>
-        public Match(Event theEvent, Participant winner, Participant loser)
+        public Match(Phase phase, Participant winner, Participant loser)
         {
-            Event = theEvent;
+            Phase = phase;
             Winner = winner;
             Loser = loser;
 
         }
         // Might need implement logic to force IsForfeit to be true if either winner or loser is null.
         // Another solution would be to add another boolean for whether a participants profile has been deleted.
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Match"/> class.
+        /// </summary>
+        public Match()
+        {
+        }
     }
 }

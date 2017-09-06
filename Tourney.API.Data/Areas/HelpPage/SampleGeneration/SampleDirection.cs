@@ -1,4 +1,4 @@
-namespace Tourney.API.Data.Areas.HelpPage
+namespace Tourney.Api.Data.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Tourney.API.Data
+namespace Tourney.Api.Data
 {
     public static class WebApiConfig
     {

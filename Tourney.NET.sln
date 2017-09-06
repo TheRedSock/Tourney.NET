@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Model", "Tourney.Model\Tourney.Model.csproj", "{7EF72C30-775E-4371-9CD7-576255760D15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.DataAccess", "Tourney.DataAccess\Tourney.DataAccess.csproj", "{6AE068D4-8DD7-4A76-9E73-6A7F6EEF71CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.API.Data", "Tourney.API.Data\Tourney.API.Data.csproj", "{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Api.Data", "Tourney.API.Data\Tourney.Api.Data.csproj", "{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.SampleData", "Tourney.SampleData\Tourney.SampleData.csproj", "{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}"
 EndProject

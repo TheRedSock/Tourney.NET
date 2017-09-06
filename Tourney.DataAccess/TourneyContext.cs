@@ -2,8 +2,6 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Tourney.Model;
-using Tourney.Model.LocationClasses;
-using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.DataAccess
 {
@@ -38,12 +36,12 @@ namespace Tourney.DataAccess
         public virtual DbSet<Game> Games { get; set; }
 
         /// <summary>
-        /// Gets or sets the events.
+        /// Gets or sets the Phases.
         /// </summary>
         /// <value>
-        /// The events.
+        /// The Phases.
         /// </value>
-        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<Phase> Phases { get; set; }
 
         /// <summary>
         /// Gets or sets the matches.
@@ -196,14 +194,14 @@ namespace Tourney.DataAccess
             #endregion
 
             #region One-To-Many
-            // Maps the one-to-many relation between Event and Tournament.
-            modelBuilder.Entity<Event>()
+            // Maps the one-to-many relation between Phase and Tournament.
+            modelBuilder.Entity<Phase>()
                 .HasRequired(a => a.Tournament)
-                .WithMany(b => b.Events);
+                .WithMany(b => b.Phases);
 
-            // Maps the one-to-many relation between Match and Event.
+            // Maps the one-to-many relation between Match and Phase.
             modelBuilder.Entity<Match>()
-                .HasRequired(a => a.Event)
+                .HasRequired(a => a.Phase)
                 .WithMany(b => b.Matches);
 
             // Maps the one-to-many relation between Match and Participant (Winner).

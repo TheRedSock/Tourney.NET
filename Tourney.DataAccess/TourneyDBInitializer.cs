@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using Tourney.Model;
-using Tourney.Model.LocationClasses;
-using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.DataAccess
 {
@@ -51,7 +49,7 @@ namespace Tourney.DataAccess
             var game = new Game("Super Smash Bros. Melee");
 
             var tournament = new Tournament("Smash the Mill Deluxe", game) { Location = location };
-            var playoffs = new Event("Showmatch", tournament, EventType.DoubleElimination);
+            var playoffs = new Phase("Showmatch", tournament, PhaseType.DoubleElimination);
 
             var matchOne = new Match(playoffs, playerThree, player) { DateTime = DateTime.Now };
             var matchTwo = new Match(playoffs, playerTwo, playerFour) { DateTime = DateTime.Now };
@@ -88,7 +86,7 @@ namespace Tourney.DataAccess
             context.Teams.Add(teamTwo);
             context.Games.Add(game);
             context.Tournaments.Add(tournament);
-            context.Events.Add(playoffs);
+            context.Phases.Add(playoffs);
             context.Matches.Add(matchOne);
             context.Matches.Add(matchTwo);
             context.Matches.Add(matchThree);

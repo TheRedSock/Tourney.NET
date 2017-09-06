@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Tourney.Model.LocationClasses
+namespace Tourney.Model
 {
     /// <summary>
-    /// Class for a region.
+    /// Class for a city.
     /// </summary>
-    public class Region
+    public class City
     {
         /// <summary>
         /// Gets or sets the region identifier.
@@ -14,7 +14,7 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The region identifier.
         /// </value>
-        public int RegionId { get; set; }
+        public int CityId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -26,29 +26,21 @@ namespace Tourney.Model.LocationClasses
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the country.
+        /// Gets or sets the region.
         /// </summary>
         /// <value>
-        /// The country.
+        /// The region.
         /// </value>
         [Required]
-        public virtual Country Country { get; set; }
+        public virtual Region Region { get; set; }
 
         /// <summary>
-        /// Gets or sets the country identifier.
+        /// Gets or sets the region identifier.
         /// </summary>
         /// <value>
-        /// The country identifier.
+        /// The region identifier.
         /// </value>
-        public int CountryId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cities.
-        /// </summary>
-        /// <value>
-        /// The cities.
-        /// </value>
-        public virtual List<City> Cities { get; set; }
+        public int RegionId { get; set; }
 
         /// <summary>
         /// Gets or sets the locations that use this class.
@@ -56,19 +48,24 @@ namespace Tourney.Model.LocationClasses
         /// <value>
         /// The locations.
         /// </value>
-        public virtual List<Location> Locations { get; set; }
+        public virtual List<Location> Locations { get; } = new List<Location>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Region"/> class.
+        /// Initializes a new instance of the <see cref="City"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
-        /// <param name="country">The country.</param>
-        public Region(string name, Country country)
+        /// <param name="region">The region.</param>
+        public City(string name, Region region)
         {
             Name = name;
-            Country = country;
-            Cities = new List<City>();
-            Locations = new List<Location>();
+            Region = region;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="City"/> class.
+        /// </summary>
+        public City()
+        {
         }
     }
 }

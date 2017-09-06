@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>ExtendedDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,19 +40,19 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventType.cs" />
-    <Compile Include="Event.cs" />
+    <Compile Include="PhaseType.cs" />
+    <Compile Include="Phase.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="LocationClasses\City.cs" />
-    <Compile Include="LocationClasses\Continent.cs" />
-    <Compile Include="LocationClasses\Country.cs" />
-    <Compile Include="LocationClasses\Region.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Continent.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Region.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="Participant.cs" />
-    <Compile Include="ParticipantClasses\Team.cs" />
+    <Compile Include="Team.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="ParticipantClasses\Player.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Ranking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tournament.cs" />

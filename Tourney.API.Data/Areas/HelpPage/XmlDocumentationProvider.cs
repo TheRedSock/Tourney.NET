@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using Tourney.API.Data.Areas.HelpPage.ModelDescriptions;
+using Tourney.Api.Data.Areas.HelpPage.ModelDescriptions;
 
-namespace Tourney.API.Data.Areas.HelpPage
+namespace Tourney.Api.Data.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

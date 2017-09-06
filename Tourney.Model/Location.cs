@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Tourney.Model.LocationClasses;
-using Tourney.Model.ParticipantClasses;
 
 namespace Tourney.Model
 {
@@ -87,7 +85,7 @@ namespace Tourney.Model
         /// <value>
         /// The residences.
         /// </value>
-        public virtual List<Person> Residences { get; set; }
+        public virtual List<Person> Residences { get; } = new List<Person>();
 
         /// <summary>
         /// Gets or sets the nationalities.
@@ -95,7 +93,7 @@ namespace Tourney.Model
         /// <value>
         /// The nationalities.
         /// </value>
-        public virtual List<Person> Nationalities { get; set; }
+        public virtual List<Person> Nationalities { get; } = new List<Person>();
 
         /// <summary>
         /// Gets or sets the teams.
@@ -103,7 +101,7 @@ namespace Tourney.Model
         /// <value>
         /// The teams.
         /// </value>
-        public virtual List<Team> Teams { get; set; }
+        public virtual List<Team> Teams { get; } = new List<Team>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -111,7 +109,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual List<Ranking> Rankings { get; set; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -119,17 +117,13 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual List<Tournament> Tournaments { get; set; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Location"/> class.
         /// </summary>
         public Location()
         {
-            Residences = new List<Person>();
-            Nationalities = new List<Person>();
-            Teams = new List<Team>();
-            Tournaments = new List<Tournament>();
         }
     }
 }

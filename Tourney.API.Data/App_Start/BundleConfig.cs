@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Tourney.API.Data
+namespace Tourney.Api.Data
 {
     public class BundleConfig
     {

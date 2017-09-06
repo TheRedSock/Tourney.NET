@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Tourney.API.Data
+namespace Tourney.Api.Data
 {
     public class FilterConfig
     {

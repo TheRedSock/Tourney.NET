@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Tourney.API.Data.Areas.HelpPage.ModelDescriptions;
-using Tourney.API.Data.Areas.HelpPage.Models;
+using Tourney.Api.Data.Areas.HelpPage.ModelDescriptions;
+using Tourney.Api.Data.Areas.HelpPage.Models;
 
-namespace Tourney.API.Data.Areas.HelpPage.Controllers
+namespace Tourney.Api.Data.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

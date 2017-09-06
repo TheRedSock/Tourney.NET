@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace Tourney.API.Data.Areas.HelpPage
+namespace Tourney.Api.Data.Areas.HelpPage
 {
     /// <summary>
     /// This class will generate the samples for the help page.

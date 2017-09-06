@@ -1,6 +1,6 @@
 using System;
 
-namespace Tourney.API.Data.Areas.HelpPage.ModelDescriptions
+namespace Tourney.Api.Data.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {
