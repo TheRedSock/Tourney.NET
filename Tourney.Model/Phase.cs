@@ -92,11 +92,10 @@ namespace Tourney.Model
         {
             // Get amount of players in the Phase, and calculates the closest power of 2 above that number.
             int playerCount = Tournament.Participants.Count;
-            double log = Math.Log(playerCount) / Math.Log(2);
-            int roundLog = (int) Math.Ceiling(log);
+            int roundCount = GetPowerOfTwoExponent(playerCount);
 
-            // Sets a string array to the size of the calculated power of 2, and iterates on it.
-            string[] r = new string[roundLog];
+            // Sets a string array to the size of the calculated power of 2 exponent, and iterates on it.
+            string[] r = new string[roundCount];
 
             for (int i = 0; i < r.Length; i++)
             {
@@ -122,6 +121,17 @@ namespace Tourney.Model
 
             // Return the string array containing the proper round names in the proper order.
             return r;
+        }
+
+        /// <summary>
+        /// Gets the exponent number of the value 2^x which equals the nearest number above the parameter.
+        /// </summary>
+        /// <param name="lowerBound">The value for which to check the next closest 2^x value.</param>
+        /// <returns></returns>
+        public int GetPowerOfTwoExponent(int lowerBound)
+        {
+            double log = Math.Log(lowerBound) / Math.Log(2);
+            return (int)Math.Ceiling(log);
         }
     }
 }
