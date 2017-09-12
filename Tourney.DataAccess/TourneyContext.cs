@@ -140,26 +140,68 @@ namespace Tourney.DataAccess
         /// </remarks>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            
-            // Makes it so the database tables are not pluralized.
+            // Remove various EF conventions.
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-            // Changes the default datetime type to datetime2 instead of SqlDateTime so it can hold older dates.
+            // Changes the default datetime type to datetime2 instead of SqlDateTime.
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+            
+            // Build the model.
+            RankingTournamentBuilder(modelBuilder);
+            RankingParticipantBuilder(modelBuilder);
+            ParticipantTournamentBuilder(modelBuilder);
+            PlayerTeamBuilder(modelBuilder);
+            PhaseTournamentBuilder(modelBuilder);
+            MatchPhaseBuilder(modelBuilder);
+            MatchWinnerBuilder(modelBuilder);
+            MatchLoserBuilder(modelBuilder);
+            PlayerPersonBuilder(modelBuilder);
+            PersonResidenceBuilder(modelBuilder);
+            PersonNationalityBuilder(modelBuilder);
+            TeamLocationBuilder(modelBuilder);
+            RankingLocationBuilder(modelBuilder);
+            TournamentLocationBuilder(modelBuilder);
+            LocationContinentBuilder(modelBuilder);
+            LocationCountryBuilder(modelBuilder);
+            LocationRegionBuilder(modelBuilder);
+            LocationCityBuilder(modelBuilder);
+            CityRegionBuilder(modelBuilder);
+            RegionCountryBuilder(modelBuilder);
+            CountryContinentBuilder(modelBuilder);
+        }
 
-            #region Many-To-Many
-            // Maps the many-to-many relation between Ranking and Tournament.
+        public TourneyContext()
+        {
+            Configuration.ProxyCreationEnabled = false;
+
+            // This deletes and recreates an empty database if the model has changed.
+            Database.SetInitializer(new TourneyDBInitializer()); 
+        }
+
+        /// <summary>
+        /// Maps the many-to-many relation between the Ranking class and the Tournament class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void RankingTournamentBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Ranking>()
-                .HasMany(a => a.Tournaments)
-                .WithMany(b => b.Rankings)
-                .Map(m =>
-                {
-                    m.ToTable("RankingTournament");
-                    m.MapLeftKey("RankingId");
-                    m.MapRightKey("TournamentId");
-                });
+                    .HasMany(a => a.Tournaments)
+                    .WithMany(b => b.Rankings)
+                    .Map(m =>
+                    {
+                m.ToTable("RankingTournament");
+                m.MapLeftKey("RankingId");
+                m.MapRightKey("TournamentId");
+            });
+        }
 
-            // Maps the many-to-many relation between Ranking and Participant.
+        /// <summary>
+        /// Maps the many-to-many relation between the Ranking class and the Participant class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void RankingParticipantBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Ranking>()
                 .HasMany(a => a.Participants)
                 .WithMany(b => b.Rankings)
@@ -169,8 +211,14 @@ namespace Tourney.DataAccess
                     m.MapLeftKey("RankingId");
                     m.MapRightKey("ParticipantId");
                 });
+        }
 
-            // Maps the many-to-many relation between Participant and Tournament.
+        /// <summary>
+        /// Maps the many-to-many relation between the Participant class and the Tournament class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void ParticipantTournamentBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Participant>()
                 .HasMany(a => a.Tournaments)
                 .WithMany(b => b.Participants)
@@ -180,8 +228,14 @@ namespace Tourney.DataAccess
                     m.MapLeftKey("ParticipantId");
                     m.MapRightKey("TournamentId");
                 });
+        }
 
-            // Maps the many-to-many relation between Player and Teams.
+        /// <summary>
+        /// Maps the many-to-many relation between the Player class and the Team class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void PlayerTeamBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Player>()
                 .HasMany(a => a.Teams)
                 .WithMany(b => b.Players)
@@ -191,100 +245,197 @@ namespace Tourney.DataAccess
                     m.MapLeftKey("PlayerId");
                     m.MapRightKey("TeamId");
                 });
-            #endregion
+        }
 
-            #region One-To-Many
-            // Maps the one-to-many relation between Phase and Tournament.
+        /// <summary>
+        /// Maps the one-to-many relation between the Phase class and the Tournament class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void PhaseTournamentBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Phase>()
                 .HasRequired(a => a.Tournament)
                 .WithMany(b => b.Phases);
+        }
 
-            // Maps the one-to-many relation between Match and Phase.
+        /// <summary>
+        /// Maps the one-to-many relation between the Match class and the Phase class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void MatchPhaseBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Match>()
                 .HasRequired(a => a.Phase)
                 .WithMany(b => b.Matches);
+        }
 
-            // Maps the one-to-many relation between Match and Participant (Winner).
+        /// <summary>
+        /// Maps a one-to-many relation between the Match class and the Participant class, renamed to Winner outside convention.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void MatchWinnerBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Match>()
                 .HasOptional(a => a.Winner)
                 .WithMany(b => b.Wins)
                 .HasForeignKey(c => c.WinnerId);
+        }
 
-            // Maps the one-to-many relation between Match and Participant (Loser).
+        /// <summary>
+        /// Maps a one-to-many relation between the Match class and the Participant class, renamed to Loser outside convention.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void MatchLoserBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Match>()
                 .HasOptional(a => a.Loser)
                 .WithMany(b => b.Losses)
                 .HasForeignKey(c => c.LoserId);
+        }
 
-            // Maps the one-to-many relation between Player and Person.
+        /// <summary>
+        /// Maps the one-to-many relation between the Player class and the Person class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void PlayerPersonBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Player>()
                 .HasOptional(a => a.Person)
                 .WithMany(b => b.Players);
+        }
 
-            #region Builders for Location class relations
-            // Maps the relations between the Location class and other classes.
+        /// <summary>
+        /// Maps a one-to-many relation between the Person class and the Location class, renamed to Residence outside convention.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void PersonResidenceBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Person>()
                 .HasOptional(a => a.Residence)
                 .WithMany(b => b.Residences)
                 .HasForeignKey(c => c.ResidenceId);
+        }
 
+        /// <summary>
+        /// Maps a one-to-many relation between the Person class and the Location class, renamed to Nationality outside convention.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void PersonNationalityBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Person>()
-                .HasOptional(a => a.Nationality)
-                .WithMany(b => b.Nationalities)
-                .HasForeignKey(c => c.NationalityId);
+               .HasOptional(a => a.Nationality)
+               .WithMany(b => b.Nationalities)
+               .HasForeignKey(c => c.NationalityId);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Team class and the Location class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void TeamLocationBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Team>()
                 .HasOptional(a => a.Location)
                 .WithMany(b => b.Teams);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Ranking class and the Location class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void RankingLocationBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Ranking>()
                 .HasOptional(a => a.Location)
                 .WithMany(b => b.Rankings);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Tournament class and the Location class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void TournamentLocationBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Tournament>()
                 .HasOptional(a => a.Location)
                 .WithMany(b => b.Tournaments);
-            #endregion
+        }
 
-            #region Location Builders
-            // Maps the various one-to-many relations between location subclasses and the Location class.
+        /// <summary>
+        /// Maps the one-to-many relation between the Location class and the Continent class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void LocationContinentBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Location>()
                 .HasOptional(a => a.Continent)
                 .WithMany(b => b.Locations);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Location class and the Country class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void LocationCountryBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Location>()
                 .HasOptional(a => a.Country)
                 .WithMany(b => b.Locations);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Location class and the Region class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void LocationRegionBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Location>()
                 .HasOptional(a => a.Region)
                 .WithMany(b => b.Locations);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Location class and the City class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void LocationCityBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Location>()
                 .HasOptional(a => a.City)
                 .WithMany(b => b.Locations);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the City class and the Region class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void CityRegionBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<City>()
                 .HasRequired(a => a.Region)
                 .WithMany(b => b.Cities);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Region class and the Country class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void RegionCountryBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Region>()
                 .HasRequired(a => a.Country)
                 .WithMany(b => b.Regions);
+        }
 
+        /// <summary>
+        /// Maps the one-to-many relation between the Country class and the Continent class.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
+        private static void CountryContinentBuilder(DbModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Country>()
                 .HasRequired(a => a.Continent)
                 .WithMany(b => b.Countries);
-            #endregion
-            #endregion
-        }
-
-        public TourneyContext()
-        {
-            Configuration.ProxyCreationEnabled = false;
-
-            // This deletes and recreates an empty database if the model has changed.
-            Database.SetInitializer(new TourneyDBInitializer()); 
         }
     }
 }

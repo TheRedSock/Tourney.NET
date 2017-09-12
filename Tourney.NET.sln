@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.DataAccess", "Tourn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Api.Data", "Tourney.API.Data\Tourney.Api.Data.csproj", "{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.SampleData", "Tourney.SampleData\Tourney.SampleData.csproj", "{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F74E55B-D0B7-4EDD-978A-D46B1DAE1341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
