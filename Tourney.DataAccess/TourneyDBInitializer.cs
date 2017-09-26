@@ -55,6 +55,13 @@ namespace Tourney.DataAccess
             var matchTwo = new Match(playoffs, playerTwo, playerFour) { DateTime = DateTime.Now };
             var matchThree = new Match(playoffs, teamTwo, team) { DateTime = DateTime.Now };
 
+            tournament.Participants.Add(player);
+            tournament.Participants.Add(playerTwo);
+            tournament.Participants.Add(playerThree);
+            tournament.Participants.Add(playerFour);
+            tournament.Participants.Add(team);
+            tournament.Participants.Add(teamTwo);
+
             playoffs.Matches.Add(matchOne);
             playoffs.Matches.Add(matchTwo);
             playoffs.Matches.Add(matchThree);

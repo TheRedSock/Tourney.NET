@@ -29,6 +29,11 @@ namespace Tourney.Api.Data.Controllers
         public async Task<IHttpActionResult> GetTournament(int id)
         {
             Tournament tournament = await db.Tournaments.FindAsync(id);
+
+            db.Entry(tournament).Collection(r => r.Rankings).Load();
+            db.Entry(tournament).Collection(r => r.Phases).Load();
+            db.Entry(tournament).Collection(r => r.Participants).Load();
+
             if (tournament == null)
             {
                 return NotFound();

@@ -64,6 +64,10 @@ namespace Tourney.Model
             PhaseType = phaseType;
         }
 
+        public Phase()
+        {
+        }
+
         // Work in progress on how to get amount of rounds for a Phase.
         public string[] GetRounds()
         {
