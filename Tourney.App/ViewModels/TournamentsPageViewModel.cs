@@ -12,7 +12,10 @@ namespace Tourney.App.ViewModels
         public TournamentsPageViewModel()
         {
         }
-        
+
+        public void GotoAddTournament() =>
+            NavigationService.Navigate(typeof(Views.AddTournamentPage));
+
         public void GotoSettings() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 0);
 
