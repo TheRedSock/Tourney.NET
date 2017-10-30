@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tourney.Model", "Tourney.Model\Tourney.Model.csproj", "{7EF72C30-775E-4371-9CD7-576255760D15}"
 EndProject
@@ -72,6 +72,8 @@ Global
 		{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}.Release|x86.ActiveCfg = Release|Any CPU
 		{C63C4C72-4C7C-4311-A3C3-BA5E4A023A0E}.Release|x86.Build.0 = Release|Any CPU
 		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|Any CPU.Build.0 = Debug|x86
+		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|ARM.ActiveCfg = Debug|ARM
 		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|ARM.Build.0 = Debug|ARM
 		{46829D04-A0CC-46E3-B4AE-815B02FFC9AB}.Debug|ARM.Deploy.0 = Debug|ARM

@@ -171,7 +171,7 @@ namespace Tourney.DataAccess
             CountryContinentBuilder(modelBuilder);
         }
 
-        public TourneyContext()
+        public TourneyContext() : base("Database")
         {
             Configuration.ProxyCreationEnabled = false;
 

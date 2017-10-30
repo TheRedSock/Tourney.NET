@@ -12,7 +12,7 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
-    <Controls:HamburgerMenu x:Name="MyHamburgerMenu">
+    <Controls:HamburgerMenu x:Name="MyHamburgerMenu"> <!-- Loaded="MyHamburgerMenu_Loaded"-->
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
@@ -24,6 +24,16 @@
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
                                Text="Home" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="False" PageType="views:TournamentsPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Page" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Tournaments" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.PrimaryButtons>

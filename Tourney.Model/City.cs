@@ -48,7 +48,7 @@ namespace Tourney.Model
         /// <value>
         /// The locations.
         /// </value>
-        public virtual List<Location> Locations { get; } = new List<Location>();
+        public virtual ICollection<Location> Locations { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="City"/> class.

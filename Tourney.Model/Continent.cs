@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The countries.
         /// </value>
-        public virtual List<Country> Countries { get; } = new List<Country>();
+        public virtual ICollection<Country> Countries { get; }
 
         /// <summary>
         /// Gets or sets the locations that use this class.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The locations.
         /// </value>
-        public virtual List<Location> Locations { get; } = new List<Location>();
+        public virtual ICollection<Location> Locations { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Continent"/> class.

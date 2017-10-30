@@ -32,7 +32,7 @@ namespace Tourney.Model
         /// <value>
         /// The teams.
         /// </value>
-        public virtual List<Team> Teams { get; } = new List<Team>();
+        public virtual ICollection<Team> Teams { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
