@@ -1,9 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Template10.Mvvm;
+using Tourney.App.DataSources;
+using Tourney.Model;
+using Windows.Web.Http.Headers;
 
 namespace Tourney.App.ViewModels
 {
@@ -12,6 +19,8 @@ namespace Tourney.App.ViewModels
         public TournamentsPageViewModel()
         {
         }
+
+        public ObservableCollection<Tournament> Tournaments = new TournamentsDataSource().Tournaments;
 
         public void GotoAddTournament() =>
             NavigationService.Navigate(typeof(Views.AddTournamentPage));

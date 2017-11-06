@@ -68,12 +68,21 @@
         <ListView x:Name="tournamentList" 
                   RelativePanel.AlignLeftWith="addTournamentButton"
                   RelativePanel.AlignRightWithPanel="True"
-                  RelativePanel.Below="addTournamentButton">
-            <x:String>Item 1</x:String>
-            <x:String>Item 2</x:String>
-            <x:String>Item 3</x:String>
-            <x:String>Item 4</x:String>
-            <x:String>Item 5</x:String>
+                  RelativePanel.Below="addTournamentButton"
+                  ItemsSource="{x:Bind ViewModel.Tournaments}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0,0,40,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="{Binding Name}" FontSize="32"></TextBlock>
+                        <TextBlock Text="{Binding Game}" FontSize="32"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
     </RelativePanel>
