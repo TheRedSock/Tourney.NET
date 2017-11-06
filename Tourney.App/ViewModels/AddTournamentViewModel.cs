@@ -5,6 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
+using System.Collections.ObjectModel;
+using Tourney.Model;
+using Tourney.App.DataSources;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
+using System.Diagnostics;
 
 namespace Tourney.App.ViewModels
 {
@@ -12,30 +19,47 @@ namespace Tourney.App.ViewModels
     {
         public AddTournamentViewModel()
         {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
-            {
-                Value = "Designtime value";
-            }
         }
 
-        string _Value = "Gas";
-        public string Value { get { return _Value; } set { Set(ref _Value, value); } }
+        public ObservableCollection<Game> Games = new GamesDataSource().Games;
+
+        public string TournamentName { get; set; }
+        public Game TournamentGame { get; set; }
+        public DateTime TournamentDate { get; set; }
+
+        public async void AddTournament()
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    httpClient.BaseAddress = new Uri("http://localhost:56041");
+                    var contentJson = JsonConvert.SerializeObject(new Tournament()
+                    {
+                        Name = TournamentName,
+                        Game = TournamentGame
+                    });
+
+                    var content = new StringContent(contentJson, Encoding.UTF8, "application/json");
+                    var result = await httpClient.PostAsync("/api/tournaments", content);
+
+                    Debug.WriteLine(result);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            GotoTournaments();
+        }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
-            if (suspensionState.Any())
-            {
-                Value = suspensionState[nameof(Value)]?.ToString();
-            }
             await Task.CompletedTask;
         }
 
         public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
         {
-            if (suspending)
-            {
-                suspensionState[nameof(Value)] = Value;
-            }
             await Task.CompletedTask;
         }
 
@@ -54,5 +78,7 @@ namespace Tourney.App.ViewModels
         public void GotoAbout() =>
             NavigationService.Navigate(typeof(Views.SettingsPage), 2);
 
+        public void GotoTournaments() =>
+            NavigationService.Navigate(typeof(Views.TournamentsPage));
     }
 }

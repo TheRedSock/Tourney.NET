@@ -51,7 +51,7 @@ namespace Tourney.Model
         /// <value>
         /// The matches.
         /// </value>
-        public virtual ICollection<Match> Matches { get; }
+        public virtual List<Match> Matches { get; } = new List<Match>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Phase"/> class.

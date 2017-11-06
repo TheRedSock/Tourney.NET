@@ -64,7 +64,7 @@ namespace Tourney.Model
         /// <value>
         /// The Phases.
         /// </value>
-        public virtual ICollection<Phase> Phases { get; }
+        public virtual List<Phase> Phases { get; } = new List<Phase>();
 
         /// <summary>
         /// Gets or sets the participants.
@@ -72,7 +72,7 @@ namespace Tourney.Model
         /// <value>
         /// The participants.
         /// </value>
-        public virtual ICollection<Participant> Participants { get; }
+        public virtual List<Participant> Participants { get; } = new List<Participant>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -80,7 +80,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual ICollection<Ranking> Rankings { get; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Tournament" /> class.

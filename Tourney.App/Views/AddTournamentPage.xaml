@@ -55,5 +55,37 @@
 
         </controls:PageHeader>
 
+        <StackPanel Grid.Row="1" Margin="10"
+                    RelativePanel.Below="pageHeader">
+            <StackPanel Orientation="Vertical" 
+                    RelativePanel.Below="pageHeader"
+                    RelativePanel.AlignLeftWith="pageHeader"
+                    Name="tournamentNameStack"
+                    Margin="0,0,0,10">
+                <TextBlock Text="Name:" FontSize="20"/>
+                <TextBox Name="tournamentNameBox" Text="{Binding TournamentName, Mode=TwoWay}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                    RelativePanel.Below="tournamentNameStack"
+                    RelativePanel.AlignLeftWith="tournamentNameStack"
+                    RelativePanel.AlignRightWith="tournamentNameStack"
+                    Margin="0,0,0,10"
+                    Name="tournamentGameStack">
+                <TextBlock Text="Game:" FontSize="20"/>
+                <ComboBox Name="gameComboBox" 
+                          ItemsSource="{x:Bind ViewModel.Games}"
+                          MinWidth="{Binding Path=ActualWidth, ElementName=tournamentNameStack}" SelectedItem="{Binding TournamentGame, Mode=TwoWay}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        RelativePanel.Below="tournamentGameStack"
+                        RelativePanel.AlignLeftWith="tournamentGameStack"
+                        Margin="0,0,0,20"
+                        Name="tournamentDateStack">
+                <TextBlock Text="Date:" FontSize="20"></TextBlock>
+                <DatePicker Date="{Binding TournamentDate, Mode=TwoWay}"></DatePicker>
+            </StackPanel>
+            <Button RelativePanel.Below="tournamentDateStack" Content="Submit"
+                    Click="{x:Bind ViewModel.AddTournament}"/>
+        </StackPanel>
     </RelativePanel>
 </Page>

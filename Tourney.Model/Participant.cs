@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual ICollection<Tournament> Tournaments { get; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual ICollection<Ranking> Rankings { get; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the wins.
@@ -47,7 +47,7 @@ namespace Tourney.Model
         /// <value>
         /// The wins.
         /// </value>
-        public virtual ICollection<Match> Wins { get; }
+        public virtual List<Match> Wins { get; } = new List<Match>();
 
         /// <summary>
         /// Gets or sets the losses.
@@ -55,7 +55,7 @@ namespace Tourney.Model
         /// <value>
         /// The losses.
         /// </value>
-        public virtual ICollection<Match> Losses { get; }
+        public virtual List<Match> Losses { get; } = new List<Match>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Participant"/> class.

@@ -14,7 +14,7 @@ namespace Tourney.Model
         /// <value>
         /// The players.
         /// </value>
-        public virtual ICollection<Player> Players { get; }
+        public virtual List<Player> Players { get; } = new List<Player>();
 
         /// <summary>
         /// Gets or sets the location.

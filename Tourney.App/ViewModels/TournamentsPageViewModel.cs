@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Template10.Mvvm;
 using Tourney.App.DataSources;
 using Tourney.Model;
+using Windows.UI.Xaml.Navigation;
 using Windows.Web.Http.Headers;
 
 namespace Tourney.App.ViewModels
@@ -21,6 +22,12 @@ namespace Tourney.App.ViewModels
         }
 
         public ObservableCollection<Tournament> Tournaments = new TournamentsDataSource().Tournaments;
+
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
+        {
+            Tournaments = new TournamentsDataSource().Tournaments;
+            await Task.CompletedTask;
+        }
 
         public void GotoAddTournament() =>
             NavigationService.Navigate(typeof(Views.AddTournamentPage));

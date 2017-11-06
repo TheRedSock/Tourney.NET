@@ -31,7 +31,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual ICollection<Ranking> Rankings { get; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -39,7 +39,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual ICollection<Tournament> Tournaments { get; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.

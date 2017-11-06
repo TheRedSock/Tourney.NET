@@ -85,7 +85,7 @@ namespace Tourney.Model
         /// <value>
         /// The residences.
         /// </value>
-        public virtual ICollection<Person> Residences { get; }
+        public virtual List<Person> Residences { get; } = new List<Person>();
 
         /// <summary>
         /// Gets or sets the nationalities.
@@ -93,7 +93,7 @@ namespace Tourney.Model
         /// <value>
         /// The nationalities.
         /// </value>
-        public virtual ICollection<Person> Nationalities { get; }
+        public virtual List<Person> Nationalities { get; } = new List<Person>();
 
         /// <summary>
         /// Gets or sets the teams.
@@ -101,7 +101,7 @@ namespace Tourney.Model
         /// <value>
         /// The teams.
         /// </value>
-        public virtual ICollection<Team> Teams { get; }
+        public virtual List<Team> Teams { get; } = new List<Team>();
 
         /// <summary>
         /// Gets or sets the rankings.
@@ -109,7 +109,7 @@ namespace Tourney.Model
         /// <value>
         /// The rankings.
         /// </value>
-        public virtual ICollection<Ranking> Rankings { get; }
+        public virtual List<Ranking> Rankings { get; } = new List<Ranking>();
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -117,7 +117,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual ICollection<Tournament> Tournaments { get; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Location"/> class.

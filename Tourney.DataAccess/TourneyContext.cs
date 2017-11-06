@@ -176,7 +176,7 @@ namespace Tourney.DataAccess
             Configuration.ProxyCreationEnabled = false;
 
             // This deletes and recreates an empty database if the model has changed.
-            Database.SetInitializer(new TourneyDBInitializer()); 
+            Database.SetInitializer(new TourneyDBInitializer());
         }
 
         /// <summary>

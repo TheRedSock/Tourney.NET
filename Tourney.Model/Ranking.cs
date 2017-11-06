@@ -48,7 +48,7 @@ namespace Tourney.Model
         /// <value>
         /// The participants.
         /// </value>
-        public virtual ICollection<Participant> Participants { get; }
+        public virtual List<Participant> Participants { get; } = new List<Participant>();
 
         /// <summary>
         /// Gets or sets the tournaments.
@@ -56,7 +56,7 @@ namespace Tourney.Model
         /// <value>
         /// The tournaments.
         /// </value>
-        public virtual ICollection<Tournament> Tournaments { get; }
+        public virtual List<Tournament> Tournaments { get; } = new List<Tournament>();
 
         /// <summary>
         /// Gets or sets the location.
